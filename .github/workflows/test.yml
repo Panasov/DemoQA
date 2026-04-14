@@ -1,4 +1,4 @@
-name: Run Selenium Tests
+name: Run Selenium Tests on LambdaTest
 
 on:
   push:
@@ -19,11 +19,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: stable
-
       - name: Cache Maven dependencies
         uses: actions/cache@v4
         with:
@@ -31,16 +26,8 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      - name: Run tests
-        run: mvn clean test
-
-      - name: Generate Allure report
-        if: always()
-        run: mvn allure:report
-
-      - name: Upload Allure report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report
-          path: target/site/allure-maven-plugin
+      - name: Run tests on LambdaTest
+        env:
+          LT_USERNAME: ${{ secrets.LT_USERNAME }}
+          LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
+        run: mvn clean test -Dtest=LambdaTest
