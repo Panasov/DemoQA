@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="DemoQA Test Suite" parallel="methods" thread-count="4">
+
+    <test name="AllTests">
+        <classes>
+            <class name="testgroup.MainPageTest"/>
+            <class name="testgroup.ElementsPageTest"/>
+            <class name="testgroup.TextBoxPageTest"/>
+        </classes>
+    </test>
+
+</suite>
