@@ -57,6 +57,12 @@
             <version>2.24.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
+            <version>4.31.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

@@ -18,3 +18,6 @@ screenshots/
 
 # Local config
 log4j2.xml
+
+# LambdaTest credentials
+LambdaTest.java
